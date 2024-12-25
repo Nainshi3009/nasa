@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Educational site about SDG 13 - Climate Action with NASA data integration.">
+    <title>ECO Visioners</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+     
+   
+    <link rel="icon" href="FAvicon.png" type="image/png">
+    
+</head>
+ 
+<body class="font-sans leading-relaxed bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <header class="w-full absolute bg-transparent p-5 z-20">
+        <nav class="flex items-center justify-between">
+            <div class="flex items-center"> <!-- New container to group the text and logo -->
+                <h1 class="text-3xl font-bold text-white">ECO Visioners</h1>
+                <img src="eco.jpg" alt="Logo" class="h-12 ml-2"> <!-- Small left margin if needed -->
+            </div>
+            <div class="block lg:hidden">
+                <button id="hamburger" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+            <ul id="navbar" class="hidden lg:flex flex-col lg:flex-row justify-center space-x-16 mt-6 lg:mt-0">
+                <li><a class="text-white text-xl font-semibold hover:text-yellow-400" href="#home">Home</a></li>
+                <li><a class="text-white text-xl font-semibold hover:text-yellow-400" href="#our-team">About</a></li>
+                <li><a class="text-white text-xl font-semibold hover:text-yellow-400" href="#activities">Interactive Activities</a></li>
+                <li><a class="text-white text-xl font-semibold hover:text-yellow-400" href="#nasa-data">NASA Earth Data</a></li>
+                <li><a class="text-white text-xl font-semibold hover:text-yellow-400" href="#quiz">Quiz</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <!-- Hamburger Menu for Small Devices -->
+    <div id="mobile-menu" class="lg:hidden">
+        <ul class="bg-gray-800 text-white hidden">
+            <li><a class="block px-4 py-2 hover:bg-yellow-400" href="#home">Home</a></li>
+            <li><a class="block px-4 py-2 hover:bg-yellow-400" href="#our-team">About</a></li>
+            <li><a class="block px-4 py-2 hover:bg-yellow-400" href="#activities">Interactive Activities</a></li>
+            <li><a class="block px-4 py-2 hover:bg-yellow-400" href="#nasa-data">NASA Earth Data</a></li>
+            <li><a class="block px-4 py-2 hover:bg-yellow-400" href="#quiz">Quiz</a></li>
+        </ul>
+    </div>
+    
+
+    
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center pt-16">
+        <video id="background-audio" autoplay muted loop preload="auto" class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="./heroVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="relative z-10 text-white">
+            <h2 class="text-4xl md:text-5xl font-Arial Rounded MT Bold">Sustainable Development Goals</h2>
+            <p class="mt-4 text-lg">Learn how you can make a difference through the power of Earth observations and science.</p>
+            <a href="#about"><button class="mt-6 bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-300 transition duration-200">Get Started</button></a>
+        </div>
+    </section>
+
+<!-- Our Team Section -->
+<section id="our-team" class="py-16 bg-white relative" style="background-image: url('https://images.ctfassets.net/mrbo2ykgx5lt/32892/85d4f537d051971711f28d7f33f9cb84/sfs-section-1.png'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-black opacity-60"></div> <!-- Overlay for better text visibility -->
+    <h2 class="text-3xl text-center mb-5 text-yellow-400 relative z-10"><b>Our Team</b></h2>
+    <div class="flex justify-around flex-wrap relative z-10">
+        <div class="bg-gray-100 p-5 m-2 shadow-lg rounded w-full md:w-1/3 text-center">
+            <h3 class="text-xl font-semibold">Eco Visioners</h3>
+            <p class="text-gray-700">We are the Eco Visioners dedicated to provide a unique opportunity for high school students to see how science can directly contribute to solving global challenges on Earth. Sustainability is increasingly relevant in almost every field of study, from engineering and business to healthcare and law. For high school students, learning about sustainable development helps them see potential career paths and prepares them for the growing demand for sustainability knowledge in the workforce. We use official NASA resources to ensure accurate and up-to-date information. Together, our team is dedicated to raising awareness about the SDGs and empowering individuals to take meaningful action. We’re looking forward to an engaging seminar filled with insights, discussions, and dynamic visualizations through websites.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Game Section -->
+<section id="plant-trees" class="py-16 bg-green-100 relative overflow-hidden">
+    <h2 class="text-3xl text-center mb-5 text-black-400"><b>Plant Trees to Save the Planet</b></h2>
+    <div class="flex flex-col items-center">
+        <div id="game-area" class="relative w-full md:w-2/3 lg:w-1/2 bg-green-600 p-5 rounded shadow-lg overflow-hidden">
+            <div id="forest" class="relative h-250 bg-green-500">
+                <img src="https://thumbs.dreamstime.com/b/garden-background-green-tree-wooden-fence-vector-73493697.jpg" alt="Forest Background" class="w-full h-full object-cover">
+                <div id="trees" class="absolute inset-0"></div>
+            </div>
+            <div id="tree-counter" class="text-white text-center mt-4">
+                <h3 class="text-2xl">Trees Planted: <span id="treeCount">0</span></h3>
+            </div>
+        </div>
+        <p id="game-instruction" class="text-lg text-center mt-6 text-gray-800">Click on the forest to plant a tree and earn points!</p>
+        <button id="reset-game" class="mt-6 bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-300 transition duration-200">Reset Game</button>
+    </div>
+
+    <!-- Climate Tips Display -->
+    <div class="mt-6 text-center" id="climate-tips">
+        <h3 class="text-xl font-semibold text-black-400">Plant more Trees,To get more knowledge</h3>
+        <p id="random-tip" class="text-gray-700 mt-2">Plant more trees to reduce carbon emissions and mitigate climate change!</p>
+    </div>
+</section>
+
+<script>
+    // Game Logic for Tree Planting
+    let treeCount = 0;
+    const treeCounter = document.getElementById('treeCount');
+    const randomTip = document.getElementById('random-tip');
+    const tips = [
+        "Planting trees helps absorb carbon dioxide from the atmosphere.",
+        "Forests provide habitats for wildlife and biodiversity.",
+        "Trees reduce soil erosion and help maintain the water cycle.",
+        "Trees act as natural air filters, improving air quality.",
+        "Trees absorb carbon dioxide (CO₂) from the atmosphere, helping to mitigate climate change.",
+        "Forests and trees provide habitats for countless species of plants and animals, promoting biodiversity",
+        "Tree roots help bind the soil, reducing erosion and maintaining soil fertility.",
+        "Reforestation can help restore damaged ecosystems."
+    ];
+
+    document.getElementById('forest').addEventListener('click', (event) => {
+        const x = event.offsetX;
+        const y = event.offsetY;
+
+        // Create a new tree element
+        const tree = document.createElement('img');
+        tree.src = 'https://cdn.pixabay.com/photo/2017/01/31/22/47/tree-2027899_1280.png'; // Tree image
+        tree.style.position = 'absolute';
+        tree.style.left = `${x - 25}px`; // Center the tree image
+        tree.style.top = `${y - 50}px`; // Center the tree image
+        tree.style.transition = 'transform 0.3s ease';
+        tree.style.pointerEvents = 'none'; // Prevent interference with clicking
+
+        // Add tree to the forest
+        document.getElementById('trees').appendChild(tree);
+
+        // Increment tree count and update display
+        treeCount++;
+        treeCounter.innerText = treeCount;
+
+        // Show random climate tip
+        const tip = tips[Math.floor(Math.random() * tips.length)];
+        randomTip.innerText = tip;
+
+        // Animate tree planting effect
+        tree.style.transform = 'scale(1.2)'; // Grow effect
+        setTimeout(() => {
+            tree.style.transform = 'scale(1)'; // Reset size
+        }, 300);
+    });
+
+    // Reset the game
+    document.getElementById('reset-game').addEventListener('click', () => {
+        treeCount = 0;
+        treeCounter.innerText = treeCount;
+        randomTip.innerText = "Plant more trees to reduce carbon emissions and mitigate climate change!";
+        document.getElementById('trees').innerHTML = ''; // Remove all planted trees
+    });
+</script>
+
+<style>
+    /* Styling for Game Area */
+    #game-area {
+        position: relative;
+        height: 400px;
+        background: url('forest.jpg') no-repeat center center;
+        background-size: cover;
+        cursor: pointer;
+    }
+    #game-area img {
+        pointer-events: none; /* Make sure clicking only registers in the game area */
+    }
+    #forest {
+        position: relative;
+        overflow: hidden;
+    }
+</style>
+
+    
+    <!-- Interactive Activities Section -->
+    <!-- More Information Section -->
+    <section id="activities" class="py-16 bg-gray-100 relative overflow-hidden" style="background-image: url('https://img.freepik.com/premium-photo/smooth-background-violet-with-some-light-grey-infrastructure-symbols-connections-technology-background-ar-21-v-52-johttps://png.pngtree.com/thumb_back/fh260/background/20190529/pngtree-the-background-of-sense-of-science-and-technology-in-information-technology-image_117255.jpgb-id-3d732fe24612411a8b7df893a4d0687e_941600-331750.jpg'); background-size: cover; background-position: center;">
+    
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black opacity-50 z-1"></div>
+    
+        <!-- Content -->
+        <div class="relative z-10">
+            <h2 class="text-3xl text-center mb-5 text-yellow-400"><b>More Information</b></h2>
+            
+            <!-- Slider -->
+            <div id="activitySlider" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="flex justify-around flex-wrap">
+                            <div class="bg-white p-5 m-2 shadow-lg rounded w-full md:w-1/3 text-center hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center justify-center">
+                                    <a href="https://carbon.nasa.gov/cms/" target="_blank">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqqgd7jmQOiRsgTP08plgnbVN_BZFE6oB0ZcNGEZCoSmfL7ELrgd5AR7gQDatVMW77xgU&usqp=CAU" alt="Track CO2 Emissions" class="mb-3 rounded mr-4">
+                                    </a>
+                                </div>
+                                <h3 class="text-xl font-semibold mt-3">Track CO<sub>2</sub> Emissions</h3>
+                            </div>
+                            
+                            <div class="bg-white p-5 m-2 shadow-lg rounded w-full md:w-1/3 text-center hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center justify-center">
+                                    <a href="https://gpm.nasa.gov/" target="_blank">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrrSUiEnwMnyx9K0gbsdclqzrPf_fy7roRQ&s" alt="Monitor Global Temperature" class="mb-3 rounded">
+                                    </a>
+                                </div>    
+                                <h3 class="text-xl font-semibold">Global Precipitation Measurement</h3>
+                            </div>
+                            
+                            <div class="bg-white p-5 m-2 shadow-lg rounded w-full md:w-1/3 text-center hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center justify-center">
+                                    <a href="https://ozone.unep.org/sdg" target="_blank">
+                                        <img src="https://media.licdn.com/dms/image/D4D12AQFIV77Gf3od8g/article-cover_image-shrink_720_1280/0/1707150462634?e=2147483647&v=beta&t=VPobALk9_nXwEqPy83CqCYOv_UsepDKpQ_7HHrobQVk" alt="Explore The 17 Goals of SDGs" class="mb-3 rounded">
+                                    </a>
+                                </div>
+                                <h3 class="text-xl font-semibold">Explore The 17 Goals of SDGs</h3>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Additional slides can be added here -->
+                </div>
+    
+                <a class="carousel-control-prev" href="#activitySlider" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#activitySlider" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+<section class="py-16 bg-gray-100 flex justify-center items-center relative" style="background-image: url('https://img.freepik.com/free-photo/white-cloud-blue-sky-sea_74190-4488.jpg'); background-size: cover; background-position: center;">
+    <!-- Optional overlay for better contrast -->
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    
+    <!-- Video content -->
+    <div class="relative z-10 w-full flex justify-center items-center">
+        <video controls class="w-4/5 h-auto shadow-lg">
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+    
+    <!-- NASA Earth Data Section -->
+    <!-- NASA Earth Data Section -->
+<section id="nasa-data" class="relative py-16 bg-white">
+    <div class="absolute inset-0">
+        <img src="Satellite.jpg" alt="NASA Earth Data" class="w-full h-full object-cover opacity-100"> <!-- Adjust opacity as needed -->
+    </div>
+    <h2 class="text-3xl mx-10 text-left mb-5 text-yellow-400 relative z-10">NASA Earth Data</h2>
+    <p class="max-w-2xl mx-10 text-left text-white relative z-10">
+        NASA provides real-time data on climate patterns using Earth observation tools. Access datasets and visualizations to better understand climate trends.
+    </p>
+    <div class="max-w-2xl mx-10 text-left mt-5 relative z-10">
+        <p class="text-white text-lg text-justify opacity-[80%]">
+            Through innovative satellite technology, NASA helps monitor changes in land use, climate variability, and weather patterns. These insights support critical decisions in agriculture, disaster response, and urban planning.
+        </p>
+        <p class="mt-4 text-white text-lg text-justify opacity-[80%]">
+            By leveraging NASA's Earth data, researchers and policymakers can predict severe weather events, manage natural resources more effectively, and enhance the resilience of communities facing climate challenges. This data is essential for tracking progress towards global sustainability goals.
+        </p>
+        <p class="mt-4 text-white text-lg text-justify opacity-[80%]">
+            Explore our vast repository of datasets and visualize how Earth's systems are changing, ensuring we are better prepared for the future.
+        </p>
+    </div>
+</section>
+
+<!-- Space Applications in Agriculture Section -->
+<section id="agriculture-benefits" class="relative py-16 bg-gray-100">
+    <div class="absolute inset-0">
+        <img src="Agri.jpg" alt="Agriculture Benefits" class="w-full h-full object-cover opacity-80"> <!-- Adjust opacity as needed -->
+    </div>
+    <h2 class="text-3xl text-center mb-5  mx-10 text-yellow-400 relative z-10">Benefits of Space Applications in Agriculture</h2>
+    <p class="max-w-2xl mx-auto text-center mx-10  text-white relative z-10">
+        
+    </p>
+    <div class="mt-5 mx-10  relative z-10">
+        <h3 class="text-xl font-semibold text-yellow-400">What satellites provide data for farmers?</h3>
+        <ul class="list-disc list-inside text-white">
+            <li>RADARSAT Constellation Mission and RADARSAT-2: To facilitate the management of resources (including farmland), marine surveillance, ecosystem monitoring, ice monitoring, disaster management and mapping in Canada and around the world.</li>
+            <li>SMAP: To map soil moisture and freeze/thaw status.</li>
+            <li>SMOS: To map sea surface salinity and monitor soil moisture on a global scale, thus contributing to a better understanding of the Earth's water cycle.</li>
+            
+        </ul>
+    </div>
+    <div class="mt-5 mx-10  relative z-10">
+        <h3 class="text-xl font-semibold text-yellow-400">RADARSAT satellites:</h3>
+        <p class="text-white">
+            What do they do?
+
+Each RADARSAT satellite has a radar that can accurately detect crop characteristics over thousands of square metres, regardless of weather conditions.
+
+What purpose do they serve?
+
+RADARSAT-2 images are extremely useful in monitoring moisture levels in the top few centimetres of soil, assessing soil and crop health, and avoiding waste of fertilizer, pesticides and water.
+
+The highly accurate data collected by RADARSAT Constellation Mission satellites enables farmers to maximize crop yields while reducing energy consumption and the use of potential pollutants
+        </p>
+    </div>
+    <div class="mt-5  mx-10 relative z-10">
+        <h3 class="text-xl font-semibold text-yellow-400">Innovative Applications:</h3>
+        <ul class="list-disc list-inside text-white">
+            <li>Yield estimation and optimization through satellite data analytics.</li>
+            <li>Sustainable practices informed by remote sensing technology.</li>
+            <li>Disaster prediction and mitigation using satellite monitoring.</li>
+            <li>Development of drought-resistant and high-yield crops through space research.</li>
+            <li>Precision Livestock Farming using satellite and IoT data for improved animal welfare.</li>
+        </ul>
+    </div>
+</section>
+
+    
+    
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="bg-gray-200 py-16 bg-gray-100 flex flex-col items-center">
+        <h2 class="text-3xl text-semibold text-center mb-5 text-yellow-400">Test Your Knowledge</h2>
+        <div class="flex flex-col md:flex-row max-sm:flex-col items-center">
+            <img src="https://img.freepik.com/premium-vector/job-exam-test-vector-illustration_138676-243.jpg" alt="Quiz Illustration" class="mix-blend-multiply mb-6 max-w-xs md:max-w-md transition-transform transform hover:scale-105">
+            <div class="text-center md:ml-6">
+                <a href="quiz.html" class="mt-6 bg-yellow-400 text-white py-2 px-4 rounded hover:bg-yellow-300 transition duration-200 animate-bounce">Start Quiz</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2024 ECO Visioners. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Audio Control and Hamburger Menu -->
+    <script src="script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu').querySelector('ul');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
